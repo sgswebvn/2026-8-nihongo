@@ -126,8 +126,8 @@ export const ProfileManagerModal: React.FC<ProfileManagerModalProps> = ({
         {/* Profile Switcher Section */}
         <div style={{ marginBottom: '20px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-            <span style={{ fontSize: '13px', fontWeight: 800 }}>Chọn thành viên học ({allProfiles.length}/3)</span>
-            {!isCreating && allProfiles.length < 5 && (
+            <span style={{ fontSize: '13px', fontWeight: 800 }}>Chọn thành viên học ({allProfiles.length} tài khoản)</span>
+            {!isCreating && allProfiles.length < 10 && (
               <button
                 onClick={() => setIsCreating(true)}
                 style={{

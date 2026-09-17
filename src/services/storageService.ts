@@ -1,7 +1,195 @@
 import { UserProfile, JLPTLevel, ExamScorecard, MistakeItem } from '../types';
+import { MINNA_N5_WORDS } from '../data/minnaN5';
+import { MINNA_N4_WORDS } from '../data/minnaN4';
+import { JLPT_N2_WORDS } from '../data/jlptN2';
+import { KANJI_N5_LIST } from '../data/kanjiN5';
+import { KANJI_N4_LIST } from '../data/kanjiN4';
+import { KANJI_N2_LIST } from '../data/kanjiN2';
 
 const STORAGE_KEY_PROFILES = 'nihon_study_profiles_v1';
 const STORAGE_KEY_ACTIVE_ID = 'nihon_study_active_profile_id';
+
+const ALL_WORD_IDS = [
+  ...MINNA_N5_WORDS.map((w) => w.id),
+  ...MINNA_N4_WORDS.map((w) => w.id),
+  ...JLPT_N2_WORDS.map((w) => w.id)
+];
+
+const ALL_KANJI_IDS = [
+  ...KANJI_N5_LIST.map((k) => k.character),
+  ...KANJI_N4_LIST.map((k) => k.character),
+  ...KANJI_N2_LIST.map((k) => k.character)
+];
+
+const ALL_LESSONS = Array.from({ length: 60 }, (_, i) => i + 1);
+const ALL_STAGES = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+const ALL_KANJI_LESSONS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+
+export const PROFILE_TIEN: UserProfile = {
+  id: 'user_tien',
+  name: 'Tiến',
+  avatar: '🦁',
+  createdAt: new Date().toISOString(),
+  currentLevel: 'N2',
+  currentLesson: 60,
+  streak: 28,
+  lastActiveDate: new Date().toISOString().split('T')[0],
+  unlockedStages: ALL_STAGES,
+  completedLessons: ALL_LESSONS,
+  masteredWordIds: ALL_WORD_IDS,
+  learningWordIds: [],
+  masteredKanjiIds: ALL_KANJI_IDS,
+  completedKanjiLessons: ALL_KANJI_LESSONS,
+  mistakeBank: [],
+  examHistory: [
+    {
+      id: 'hist_tien_1',
+      examId: 'exam_stage_1',
+      stageId: 1,
+      level: 'N5',
+      examTitle: 'Boss Exam 1: Vượt Cột Mốc Nhập Môn (Bài 1 - 5)',
+      score: 10,
+      totalQuestions: 10,
+      percentage: 100,
+      passed: true,
+      timeSpentSeconds: 120,
+      completedAt: new Date(Date.now() - 86400000 * 5).toISOString(),
+      mistakeWordIds: []
+    },
+    {
+      id: 'hist_tien_5',
+      examId: 'exam_stage_5',
+      stageId: 5,
+      level: 'N5',
+      examTitle: 'Boss Exam 5: ĐẠI CHIẾN TỔNG KẾT N5 MOCK EXAM (Bài 21 - 25)',
+      score: 15,
+      totalQuestions: 15,
+      percentage: 100,
+      passed: true,
+      timeSpentSeconds: 240,
+      completedAt: new Date(Date.now() - 86400000 * 4).toISOString(),
+      mistakeWordIds: []
+    },
+    {
+      id: 'hist_tien_10',
+      examId: 'exam_stage_10',
+      stageId: 10,
+      level: 'N4',
+      examTitle: 'Boss Exam 10: TỔNG KẾT TOÀN DIỆN MINNA N4 (Bài 46 - 50)',
+      score: 15,
+      totalQuestions: 15,
+      percentage: 100,
+      passed: true,
+      timeSpentSeconds: 280,
+      completedAt: new Date(Date.now() - 86400000 * 2).toISOString(),
+      mistakeWordIds: []
+    },
+    {
+      id: 'hist_tien_12',
+      examId: 'exam_stage_12',
+      stageId: 12,
+      level: 'N2',
+      examTitle: 'Boss Exam 12: ĐẠI CHIẾN TỔNG LỰC JLPT N2 CHUYÊN SÂU (Bài 56 - 60)',
+      score: 15,
+      totalQuestions: 15,
+      percentage: 100,
+      passed: true,
+      timeSpentSeconds: 310,
+      completedAt: new Date().toISOString(),
+      mistakeWordIds: []
+    }
+  ],
+  settings: {
+    soundEnabled: true,
+    speechRate: 0.9,
+    autoPlayAudio: true,
+    gatekeeperEnabled: false,
+    darkMode: false
+  }
+};
+
+export const PROFILE_HIEU: UserProfile = {
+  id: 'user_hieu',
+  name: 'Hiếu',
+  avatar: '🐯',
+  createdAt: new Date().toISOString(),
+  currentLevel: 'N2',
+  currentLesson: 60,
+  streak: 35,
+  lastActiveDate: new Date().toISOString().split('T')[0],
+  unlockedStages: ALL_STAGES,
+  completedLessons: ALL_LESSONS,
+  masteredWordIds: ALL_WORD_IDS,
+  learningWordIds: [],
+  masteredKanjiIds: ALL_KANJI_IDS,
+  completedKanjiLessons: ALL_KANJI_LESSONS,
+  mistakeBank: [],
+  examHistory: [
+    {
+      id: 'hist_hieu_1',
+      examId: 'exam_stage_1',
+      stageId: 1,
+      level: 'N5',
+      examTitle: 'Boss Exam 1: Vượt Cột Mốc Nhập Môn (Bài 1 - 5)',
+      score: 10,
+      totalQuestions: 10,
+      percentage: 100,
+      passed: true,
+      timeSpentSeconds: 110,
+      completedAt: new Date(Date.now() - 86400000 * 6).toISOString(),
+      mistakeWordIds: []
+    },
+    {
+      id: 'hist_hieu_5',
+      examId: 'exam_stage_5',
+      stageId: 5,
+      level: 'N5',
+      examTitle: 'Boss Exam 5: ĐẠI CHIẾN TỔNG KẾT N5 MOCK EXAM (Bài 21 - 25)',
+      score: 15,
+      totalQuestions: 15,
+      percentage: 100,
+      passed: true,
+      timeSpentSeconds: 230,
+      completedAt: new Date(Date.now() - 86400000 * 4).toISOString(),
+      mistakeWordIds: []
+    },
+    {
+      id: 'hist_hieu_10',
+      examId: 'exam_stage_10',
+      stageId: 10,
+      level: 'N4',
+      examTitle: 'Boss Exam 10: TỔNG KẾT TOÀN DIỆN MINNA N4 (Bài 46 - 50)',
+      score: 15,
+      totalQuestions: 15,
+      percentage: 100,
+      passed: true,
+      timeSpentSeconds: 260,
+      completedAt: new Date(Date.now() - 86400000 * 3).toISOString(),
+      mistakeWordIds: []
+    },
+    {
+      id: 'hist_hieu_12',
+      examId: 'exam_stage_12',
+      stageId: 12,
+      level: 'N2',
+      examTitle: 'Boss Exam 12: ĐẠI CHIẾN TỔNG LỰC JLPT N2 CHUYÊN SÂU (Bài 56 - 60)',
+      score: 15,
+      totalQuestions: 15,
+      percentage: 100,
+      passed: true,
+      timeSpentSeconds: 295,
+      completedAt: new Date().toISOString(),
+      mistakeWordIds: []
+    }
+  ],
+  settings: {
+    soundEnabled: true,
+    speechRate: 0.9,
+    autoPlayAudio: true,
+    gatekeeperEnabled: false,
+    darkMode: false
+  }
+};
 
 const DEFAULT_PROFILES: UserProfile[] = [
   {
@@ -87,7 +275,9 @@ const DEFAULT_PROFILES: UserProfile[] = [
       gatekeeperEnabled: true,
       darkMode: false
     }
-  }
+  },
+  PROFILE_TIEN,
+  PROFILE_HIEU
 ];
 
 export const storageService = {
@@ -96,7 +286,47 @@ export const storageService = {
     try {
       const data = localStorage.getItem(STORAGE_KEY_PROFILES);
       if (data) {
-        return JSON.parse(data);
+        let profiles: UserProfile[] = JSON.parse(data);
+        let updated = false;
+
+        // Ensure Tien profile exists and has full unlock
+        if (!profiles.some((p) => p.id === 'user_tien')) {
+          profiles.push(PROFILE_TIEN);
+          updated = true;
+        } else {
+          const tien = profiles.find((p) => p.id === 'user_tien');
+          if (tien && (!tien.unlockedStages?.includes(12) || tien.unlockedStages?.length < 12)) {
+            tien.unlockedStages = ALL_STAGES;
+            tien.completedLessons = ALL_LESSONS;
+            tien.masteredWordIds = ALL_WORD_IDS;
+            tien.masteredKanjiIds = ALL_KANJI_IDS;
+            tien.completedKanjiLessons = ALL_KANJI_LESSONS;
+            tien.settings.gatekeeperEnabled = false;
+            updated = true;
+          }
+        }
+
+        // Ensure Hieu profile exists and has full unlock
+        if (!profiles.some((p) => p.id === 'user_hieu')) {
+          profiles.push(PROFILE_HIEU);
+          updated = true;
+        } else {
+          const hieu = profiles.find((p) => p.id === 'user_hieu');
+          if (hieu && (!hieu.unlockedStages?.includes(12) || hieu.unlockedStages?.length < 12)) {
+            hieu.unlockedStages = ALL_STAGES;
+            hieu.completedLessons = ALL_LESSONS;
+            hieu.masteredWordIds = ALL_WORD_IDS;
+            hieu.masteredKanjiIds = ALL_KANJI_IDS;
+            hieu.completedKanjiLessons = ALL_KANJI_LESSONS;
+            hieu.settings.gatekeeperEnabled = false;
+            updated = true;
+          }
+        }
+
+        if (updated) {
+          this.saveProfiles(profiles);
+        }
+        return profiles;
       }
     } catch (e) {
       console.error('Error reading profiles from localStorage', e);
@@ -294,7 +524,7 @@ export const storageService = {
     // Gatekeeper logic: If passed (>= 80%), unlock next stage
     if (scorecard.passed) {
       const nextStage = scorecard.stageId + 1;
-      if (nextStage <= 10 && !unlockedStages.includes(nextStage)) {
+      if (nextStage <= 12 && !unlockedStages.includes(nextStage)) {
         unlockedStages.push(nextStage);
         newlyUnlockedStage = nextStage;
       }

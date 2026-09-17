@@ -27,9 +27,11 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
   const currentLessons = currentLevel === 'N5' ? MINNA_N5_LESSONS : currentLevel === 'N4' ? MINNA_N4_LESSONS : JLPT_N2_LESSONS;
   const currentWords = currentLevel === 'N5' ? MINNA_N5_WORDS : currentLevel === 'N4' ? MINNA_N4_WORDS : JLPT_N2_WORDS;
 
-  // Find next milestone / boss exam
-  const currentStage = Math.max(...activeProfile.unlockedStages);
-  const nextExam = MILESTONE_EXAMS.find((e) => e.stageId === currentStage && e.level === currentLevel) || MILESTONE_EXAMS[0];
+  // Find next milestone / boss exam matching current level
+  const levelStages = currentLevel === 'N5' ? [1, 2, 3, 4, 5] : currentLevel === 'N4' ? [6, 7, 8, 9, 10] : [11, 12];
+  const unlockedLevelStages = activeProfile.unlockedStages.filter((s) => levelStages.includes(s));
+  const currentStage = unlockedLevelStages.length > 0 ? Math.max(...unlockedLevelStages) : levelStages[0];
+  const nextExam = MILESTONE_EXAMS.find((e) => e.stageId === currentStage && e.level === currentLevel) || MILESTONE_EXAMS.find((e) => e.level === currentLevel) || MILESTONE_EXAMS[0];
 
   const masteredCount = activeProfile.masteredWordIds.filter((id) =>
     currentWords.some((w) => w.id === id)
@@ -200,8 +202,8 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             </div>
             <span style={{ fontSize: '11px', fontWeight: 700, color: 'var(--accent-primary)' }}>{currentLessons.length} Bài</span>
           </div>
-          <div style={{ fontSize: '14px', fontWeight: 800, color: 'var(--text-primary)' }}>Giáo trình Minna</div>
-          <div style={{ fontSize: '11px', color: 'var(--text-secondary)' }}>Bài 1 đến 50 chi tiết</div>
+          <div style={{ fontSize: '14px', fontWeight: 800, color: 'var(--text-primary)' }}>Kho Giáo Trình</div>
+          <div style={{ fontSize: '11px', color: 'var(--text-secondary)' }}>Bài 1 đến 60 chi tiết (N5, N4, N2)</div>
         </div>
 
         <div

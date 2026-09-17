@@ -32,7 +32,7 @@ export const TeamLeaderboard: React.FC<TeamLeaderboardProps> = ({
       <div>
         <h2 style={{ fontSize: '18px', fontWeight: 800 }}>Thi Đua Nhóm & Hồ Sơ</h2>
         <p style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>
-          Kỷ luật học tập nội bộ 2-3 người cùng tiến bộ
+          Kỷ luật nhóm học tập cùng nhau bứt phá mục tiêu
         </p>
       </div>
 
