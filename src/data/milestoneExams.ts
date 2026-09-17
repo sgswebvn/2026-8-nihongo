@@ -634,5 +634,149 @@ export const MILESTONE_EXAMS: MilestoneExam[] = [
         wordId: 'w4_46_1'
       }
     ]
+  },
+
+  // --- STAGE 11: BÀI 51 - 55 (KHỞI ĐỘNG N2) ---
+  {
+    id: 'exam_stage_11',
+    stageId: 11,
+    level: 'N2',
+    title: 'Boss Exam 11: Cột Mốc Trung Cấp N2 (Bài 51 - 55)',
+    subtitle: 'Ngữ pháp わけだ, にもかかわらず, たとたんに, ざるを得ない, を中心として',
+    lessonRange: [51, 55],
+    timeLimitSeconds: 360,
+    minPassScore: 80,
+    questions: [
+      {
+        id: 'q11_1',
+        question: 'Chọn cấu trúc diễn tả điều đương nhiên: "Anh ấy đã sống ở Nhật 10 năm, hèn chi tiếng Nhật giỏi thế":',
+        type: 'sentence-fill',
+        options: [
+          '彼は日本に10年も住んでいるのだから、日本語が上手なわけだ。',
+          '彼は日本に10年も住んでいるのだから、日本語が上手なわけがない。',
+          '彼は日本に10年も住んでいるのだから、日本語が上手なわけにはいかない。',
+          '彼は日本に10年も住んでいるのだから、日本語が上手などころではない。'
+        ],
+        correctIndex: 0,
+        explanation: '～わけだ dùng để giải thích kết quả đương nhiên (hèn chi, thảo nào).',
+        wordId: 'w2_51_1'
+      },
+      {
+        id: 'q11_2',
+        question: 'Cấu trúc mang nghĩa nhượng bộ bất chấp: "Mặc dù trời mưa to nhưng trận đấu vẫn tiếp tục":',
+        type: 'sentence-fill',
+        options: [
+          '大雨にもかかわらず、試合は続けられた。',
+          '大雨ものの、試合は続けられた。',
+          '大雨にしては、試合は続けられた。',
+          '大雨わりに、試合は続けられた。'
+        ],
+        correctIndex: 0,
+        explanation: 'N + にもかかわらず = Bất chấp N, dẫu cho N.',
+        wordId: 'w2_52_1'
+      },
+      {
+        id: 'q11_3',
+        question: 'Từ「把握」(はあく) có âm Hán Việt và nghĩa là gì?',
+        type: 'han-viet',
+        options: [
+          'BẢ ÁC - Nắm bắt rõ, thấu hiểu',
+          'KHẮC PHỤC - Vượt qua',
+          'DUY TRÌ - Giữ gìn',
+          'MÂU THUẪN - Trái ngược'
+        ],
+        correctIndex: 0,
+        explanation: '把握 (はあく) = BẢ ÁC = Nắm bắt tường tận hiện trạng.',
+        wordId: 'w2_51_1'
+      },
+      {
+        id: 'q11_4',
+        question: 'Diễn tả tình huống không còn cách nào khác đành phải làm: "Đành phải hủy bỏ kế hoạch":',
+        type: 'sentence-fill',
+        options: [
+          '計画を中止せざるを得ない。',
+          '計画を中止してたまらない。',
+          '計画を中止しかねない。',
+          '計画を中止するわけがない。'
+        ],
+        correctIndex: 0,
+        explanation: 'V (thể ない bỏ ない) + ざるを得ない = Buộc lòng phải, đành phải làm.',
+        wordId: 'w2_54_1'
+      },
+      {
+        id: 'q11_5',
+        question: 'Từ「契機」(けいき) mang ý nghĩa gì?',
+        type: 'meaning-to-word',
+        options: ['Bước ngoặt, thời cơ chuyển biến', 'Thiệt hại', 'Bị thuyết phục', 'Xu hướng'],
+        correctIndex: 0,
+        explanation: '契機 (けいき) = KHẾ CƠ = Thời cơ, cơ duyên làm thay đổi cục diện.',
+        wordId: 'w2_51_5'
+      }
+    ]
+  },
+
+  // --- STAGE 12: BÀI 56 - 60 (ĐẠI CHIẾN TỐT NGHIỆP N2) ---
+  {
+    id: 'exam_stage_12',
+    stageId: 12,
+    level: 'N2',
+    title: 'Boss Exam 12: ĐẠI CHIẾN TỐT NGHIỆP JLPT N2 (Bài 56 - 60)',
+    subtitle: 'Tổng hợp Thượng cấp N2: Thái độ に対して, Dựa trên に基づいて, Xu hướng 一方だ, Giới hạn に限って',
+    lessonRange: [56, 60],
+    timeLimitSeconds: 400,
+    minPassScore: 80,
+    questions: [
+      {
+        id: 'q12_1',
+        question: 'Căn cứ thực tế: "Quyết định đưa ra dựa trên các số liệu điều tra":',
+        type: 'sentence-fill',
+        options: [
+          '調査データに基づいて決定を下す。',
+          '調査データに対して決定を下す。',
+          '調査データをめぐって決定を下す。',
+          '調査データに関して決定を下す。'
+        ],
+        correctIndex: 0,
+        explanation: 'N + に基づいて (にもとづいて) = Dựa trên căn cứ, số liệu, pháp luật.',
+        wordId: 'w2_56_1'
+      },
+      {
+        id: 'q12_2',
+        question: 'Khuynh hướng liên tục xấu đi: "Tình hình kinh tế ngày càng xấu đi":',
+        type: 'sentence-fill',
+        options: [
+          '景気は悪化する一方だ。',
+          '景気は悪化するばかりか。',
+          '景気は悪化するのみならず。',
+          '景気は悪化するにすぎない。'
+        ],
+        correctIndex: 0,
+        explanation: 'V-る + 一方だ (いっぽうだ) = Ngày càng theo một chiều hướng (thường là tiêu cực).',
+        wordId: 'w2_58_1'
+      },
+      {
+        id: 'q12_3',
+        question: 'Từ「慎重」(しんちょう) có âm Hán Việt là gì?',
+        type: 'han-viet',
+        options: ['THẬN TRỌNG (Cẩn trọng)', 'CẢNH GIỚI (Đề phòng)', 'CHUYÊN NIỆM (Chuyên tâm)', 'THỎA HIỆP (Nhân nhượng)'],
+        correctIndex: 0,
+        explanation: '慎重 (しんちょう) = THẬN TRỌNG.',
+        wordId: 'w2_53_5'
+      },
+      {
+        id: 'q12_4',
+        question: 'Cấu trúc chỉ điều kiện duy nhất: "Chỉ cần có sức khỏe là có thể vượt qua tất cả":',
+        type: 'sentence-fill',
+        options: [
+          '健康さえあれば、何でも乗り越えられる。',
+          '健康に限って、何でも乗り越えられる。',
+          '健康こそ、何でも乗り越えられる。',
+          '健康に限り、何でも乗り越えられる。'
+        ],
+        correctIndex: 0,
+        explanation: 'N さえ V-ば = Chỉ cần có điều kiện N là đủ.',
+        wordId: 'w2_59_1'
+      }
+    ]
   }
 ];

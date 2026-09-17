@@ -62,7 +62,7 @@ export const Header: React.FC<HeaderProps> = ({
           border: '1px solid var(--border-subtle)'
         }}
       >
-        {(['N5', 'N4'] as JLPTLevel[]).map((lvl) => (
+        {(['N5', 'N4', 'N2'] as JLPTLevel[]).map((lvl) => (
           <button
             key={lvl}
             onClick={() => onLevelChange(lvl)}

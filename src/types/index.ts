@@ -1,4 +1,4 @@
-export type JLPTLevel = 'N5' | 'N4';
+export type JLPTLevel = 'N5' | 'N4' | 'N2';
 
 export interface JapaneseWord {
   id: string;

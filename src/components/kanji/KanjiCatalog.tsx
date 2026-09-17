@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { UserProfile, JLPTLevel, KanjiItem, KanjiExerciseQuestion } from '../../types';
 import { KANJI_N5_LIST } from '../../data/kanjiN5';
 import { KANJI_N4_LIST } from '../../data/kanjiN4';
-import { KANJI_N5_LESSONS, KANJI_N4_LESSONS, generateKanjiExercises } from '../../data/kanjiLessons';
+import { KANJI_N2_LIST } from '../../data/kanjiN2';
+import { KANJI_N5_LESSONS, KANJI_N4_LESSONS, KANJI_N2_LESSONS, generateKanjiExercises } from '../../data/kanjiLessons';
 import { KanjiDetailModal } from './KanjiDetailModal';
 import { KanjiPracticeModal } from './KanjiPracticeModal';
 import { Search, BookOpen, Dumbbell, Sparkles, CheckCircle, ChevronRight, Award, Play } from 'lucide-react';
@@ -28,8 +29,8 @@ export const KanjiCatalog: React.FC<KanjiCatalogProps> = ({
     questions: KanjiExerciseQuestion[];
   } | null>(null);
 
-  const kanjiList = currentLevel === 'N5' ? KANJI_N5_LIST : KANJI_N4_LIST;
-  const kanjiLessons = currentLevel === 'N5' ? KANJI_N5_LESSONS : KANJI_N4_LESSONS;
+  const kanjiList = currentLevel === 'N5' ? KANJI_N5_LIST : currentLevel === 'N4' ? KANJI_N4_LIST : KANJI_N2_LIST;
+  const kanjiLessons = currentLevel === 'N5' ? KANJI_N5_LESSONS : currentLevel === 'N4' ? KANJI_N4_LESSONS : KANJI_N2_LESSONS;
 
   const filtered = kanjiList.filter((k) => {
     const term = searchTerm.toLowerCase().trim();

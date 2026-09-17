@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { UserProfile, JLPTLevel, JapaneseWord } from '../../types';
 import { MINNA_N5_WORDS } from '../../data/minnaN5';
 import { MINNA_N4_WORDS } from '../../data/minnaN4';
+import { JLPT_N2_WORDS } from '../../data/jlptN2';
 import { Volume2, RotateCw, Check, X, Sparkles, Filter, AlertCircle, ArrowLeft } from 'lucide-react';
 import { audioService } from '../../services/audioService';
 import { soundEffects } from '../../services/soundEffects';
@@ -23,7 +24,7 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
   onClearFilter,
   onRecordWordMastery
 }) => {
-  const allWords = currentLevel === 'N5' ? MINNA_N5_WORDS : MINNA_N4_WORDS;
+  const allWords = currentLevel === 'N5' ? MINNA_N5_WORDS : currentLevel === 'N4' ? MINNA_N4_WORDS : JLPT_N2_WORDS;
 
   const [selectedLesson, setSelectedLesson] = useState<number | 'all'>(
     filterLessonId || 'all'

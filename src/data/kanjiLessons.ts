@@ -1,6 +1,7 @@
 import { KanjiLesson, KanjiItem, KanjiExerciseQuestion } from '../types';
 import { KANJI_N5_LIST } from './kanjiN5';
 import { KANJI_N4_LIST } from './kanjiN4';
+import { KANJI_N2_LIST } from './kanjiN2';
 
 export const KANJI_N5_LESSONS: KanjiLesson[] = [
   {
@@ -72,14 +73,38 @@ export const KANJI_N4_LESSONS: KanjiLesson[] = [
   }
 ];
 
-/**
- * Tự động tạo bài tập thực hành Kanji dựa trên danh sách Kanji truyền vào
- */
+export const KANJI_N2_LESSONS: KanjiLesson[] = [
+  {
+    id: 9,
+    level: 'N2',
+    title: 'Bài 9: Xây dựng & Định hướng (N2)',
+    subtitle: 'Cấu (Cơ cấu), Đạo (Chỉ đạo), Triển (Phát triển), Nhận, Thiết, Thi',
+    kanjiCharacters: ['構', '導', '展', '認', '設', '施'],
+    description: 'Các chữ Hán N2 thiết yếu trong văn bản kinh doanh, triển khai dự án.'
+  },
+  {
+    id: 10,
+    level: 'N2',
+    title: 'Bài 10: Kinh tế, Pháp quyền & Thiệt hại (N2)',
+    subtitle: 'Kinh, Tế (Kinh tế), Quyền (Quyền lợi), Hại, Quy (Quy tắc)',
+    kanjiCharacters: ['経', '済', '権', '害', '規'],
+    description: 'Hệ thống Hán tự về kinh tế học, quyền lợi và thể chế pháp luật.'
+  },
+  {
+    id: 11,
+    level: 'N2',
+    title: 'Bài 11: Trách nhiệm & Thái độ ứng xử (N2)',
+    subtitle: 'Trách, Nhiệm (Trách nhiệm), Thái, Độ (Thái độ)',
+    kanjiCharacters: ['責', '任', '態', '度'],
+    description: 'Hán tự thể hiện năng lực và thái độ làm việc trong môi trường chuyên nghiệp.'
+  }
+];
+
 export function generateKanjiExercises(kanjiItems: KanjiItem[], count: number = 10): KanjiExerciseQuestion[] {
   if (kanjiItems.length === 0) return [];
 
   const questions: KanjiExerciseQuestion[] = [];
-  const allPool = [...KANJI_N5_LIST, ...KANJI_N4_LIST];
+  const allPool = [...KANJI_N5_LIST, ...KANJI_N4_LIST, ...KANJI_N2_LIST];
 
   kanjiItems.forEach((targetKanji, idx) => {
     // Dạng 1: Đoán Âm Hán Việt
@@ -147,6 +172,5 @@ export function generateKanjiExercises(kanjiItems: KanjiItem[], count: number = 
     });
   });
 
-  // Shuffle and limit to requested count
   return questions.sort(() => 0.5 - Math.random()).slice(0, count);
 }

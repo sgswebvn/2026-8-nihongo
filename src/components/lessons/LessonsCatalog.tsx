@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { UserProfile, JLPTLevel, Lesson } from '../../types';
 import { MINNA_N5_LESSONS } from '../../data/minnaN5';
 import { MINNA_N4_LESSONS } from '../../data/minnaN4';
+import { JLPT_N2_LESSONS } from '../../data/jlptN2';
 import { MILESTONE_EXAMS } from '../../data/milestoneExams';
 import { Lock, CheckCircle2, ChevronRight, Swords, Sparkles, BookOpen } from 'lucide-react';
 import { soundEffects } from '../../services/soundEffects';
@@ -19,16 +20,21 @@ export const LessonsCatalog: React.FC<LessonsCatalogProps> = ({
   onSelectLesson,
   onOpenExam
 }) => {
-  const allLessons = currentLevel === 'N5' ? MINNA_N5_LESSONS : MINNA_N4_LESSONS;
+  const allLessons = currentLevel === 'N5' ? MINNA_N5_LESSONS : currentLevel === 'N4' ? MINNA_N4_LESSONS : JLPT_N2_LESSONS;
 
   // Group into stages (5 lessons per stage)
-  const stages = [
-    { stageId: currentLevel === 'N5' ? 1 : 6, title: currentLevel === 'N5' ? 'Chặng 1: Nhập môn & Làm quen' : 'Chặng 6: Khởi đầu N4', range: currentLevel === 'N5' ? [1, 5] : [26, 30] },
-    { stageId: currentLevel === 'N5' ? 2 : 7, title: currentLevel === 'N5' ? 'Chặng 2: Hành động & Tính từ' : 'Chặng 7: Thể Ý chí & Mệnh lệnh', range: currentLevel === 'N5' ? [6, 10] : [31, 35] },
-    { stageId: currentLevel === 'N5' ? 3 : 8, title: currentLevel === 'N5' ? 'Chặng 3: Thể て & Nhờ vả' : 'Chặng 8: Bị động & Gián tiếp', range: currentLevel === 'N5' ? [11, 15] : [36, 40] },
-    { stageId: currentLevel === 'N5' ? 4 : 9, title: currentLevel === 'N5' ? 'Chặng 4: Thể ない & Thể た' : 'Chặng 9: Kính ngữ Cho-Nhận', range: currentLevel === 'N5' ? [16, 20] : [41, 45] },
-    { stageId: currentLevel === 'N5' ? 5 : 10, title: currentLevel === 'N5' ? 'Chặng 5: ĐẠI CHIẾN N5 MOCK' : 'Chặng 10: ĐẠI CHIẾN N4 MOCK', range: currentLevel === 'N5' ? [21, 25] : [46, 50] }
-  ];
+  const stages = currentLevel === 'N2'
+    ? [
+        { stageId: 11, title: 'Chặng 11: N2 Khởi động & Nắm bắt nền tảng', range: [51, 55] },
+        { stageId: 12, title: 'Chặng 12: ĐẠI CHIẾN N2 MOCK TỐT NGHIỆP', range: [56, 60] }
+      ]
+    : [
+        { stageId: currentLevel === 'N5' ? 1 : 6, title: currentLevel === 'N5' ? 'Chặng 1: Nhập môn & Làm quen' : 'Chặng 6: Khởi đầu N4', range: currentLevel === 'N5' ? [1, 5] : [26, 30] },
+        { stageId: currentLevel === 'N5' ? 2 : 7, title: currentLevel === 'N5' ? 'Chặng 2: Hành động & Tính từ' : 'Chặng 7: Thể Ý chí & Mệnh lệnh', range: currentLevel === 'N5' ? [6, 10] : [31, 35] },
+        { stageId: currentLevel === 'N5' ? 3 : 8, title: currentLevel === 'N5' ? 'Chặng 3: Thể て & Nhờ vả' : 'Chặng 8: Bị động & Gián tiếp', range: currentLevel === 'N5' ? [11, 15] : [36, 40] },
+        { stageId: currentLevel === 'N5' ? 4 : 9, title: currentLevel === 'N5' ? 'Chặng 4: Thể ない & Thể た' : 'Chặng 9: Kính ngữ Cho-Nhận', range: currentLevel === 'N5' ? [16, 20] : [41, 45] },
+        { stageId: currentLevel === 'N5' ? 5 : 10, title: currentLevel === 'N5' ? 'Chặng 5: ĐẠI CHIẾN N5 MOCK' : 'Chặng 10: ĐẠI CHIẾN N4 MOCK', range: currentLevel === 'N5' ? [21, 25] : [46, 50] }
+      ];
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
